@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"strings"
 )
 
 func main() {
@@ -14,10 +13,6 @@ func main() {
 	}
 
 	fmt.Println("Found", countWords(contents), "total words")
-}
-
-func countWords(text string) int {
-	return len(strings.Fields(text))
 }
 
 func getBookText(filename string) (string, error) {
