@@ -7,9 +7,14 @@ import (
 )
 
 func main() {
+	if len(os.Args) != 2 {
+		fmt.Println("Usage: go run main.go <book_file>")
+		os.Exit(1)
+	}
+
 	fmt.Println("============ BOOKBOT ============")
 
-	filename := "books/frankenstein.txt"
+	filename := os.Args[1]
 	fmt.Printf("Analyzing book found at %s...\n", filename)
 
 	contents, err := getBookText(filename)
