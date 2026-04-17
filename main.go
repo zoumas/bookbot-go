@@ -7,17 +7,26 @@ import (
 )
 
 func main() {
-	contents, err := getBookText("books/frankenstein.txt")
+	fmt.Println("============ BOOKBOT ============")
+
+	filename := "books/frankenstein.txt"
+	fmt.Printf("Analyzing book found at %s...\n", filename)
+
+	contents, err := getBookText(filename)
 	if err != nil {
 		log.Fatalf("reading file: %v", err)
 	}
 
+	fmt.Println("----------- Word Count ----------")
 	fmt.Println("Found", countWords(contents), "total words")
 
-	count := countCharacters(contents)
-	for k, v := range count {
-		fmt.Printf("%c: %d\n", k, v)
+	fmt.Println("--------- Character Count -------")
+	sortedCounts := sortedCharacterCounts(countCharacters(contents))
+	for _, cc := range sortedCounts {
+		fmt.Printf("%c: %d\n", cc.Character, cc.Count)
 	}
+
+	fmt.Println("============= END ===============")
 }
 
 func getBookText(filename string) (string, error) {
