@@ -27,8 +27,8 @@ func main() {
 
 	fmt.Println("--------- Character Count -------")
 	sortedCounts := sortedCharacterCounts(countCharacters(contents))
-	for _, cc := range sortedCounts {
-		fmt.Printf("%c: %d\n", cc.Character, cc.Count)
+	for _, c := range sortedCounts {
+		fmt.Printf("%c: %d\n", c.Character, c.Count)
 	}
 
 	fmt.Println("============= END ===============")
